@@ -1,4 +1,4 @@
-# Monitor CPU and memory of EC2 with AWS Lambda, CloudWatch, Slack
+# Monitor CPU and memory of EC2 with AWS Lambda, CloudWatch and Slack
 
 ### Overview
 

@@ -1,0 +1,127 @@
+[
+{
+	"uri": "//localhost:1313/",
+	"title": "Session Management",
+	"tags": [],
+	"description": "",
+	"content": "Monitor CPU and memory of EC2 with AWS Lambda, CloudWatch and Slack Overview In this lab, you\u0026rsquo;ll learn how to monitor EC2 instances for high CPU utilization or full disk usage and send alerts to a Slack channel using AWS CloudWatch and AWS Lambda.\nContent Introduction Preparation Create Cloud Watch Service Create Lambda Function Port Forwarding Clean up resources "
+},
+{
+	"uri": "//localhost:1313/4-createlambdafunction/4.2-create-lambda-function/",
+	"title": "Create Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/4-createlambdafunction/4.1-import-layer/",
+	"title": "Import Layer",
+	"tags": [],
+	"description": "",
+	"content": "Use python library To install library to use on lambda function, you need use Layers feature to upload library which get from Ubuntu environment and ziped, if don\u0026rsquo;t have more time to get this, download here Select Layer -\u0026gt; Create Layer Fill bellow info to create layer "
+},
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "This architecture leverages the power of AWS CloudWatch, AWS Lambda, and Slack to create a seamless, automated monitoring and alerting system. The solution is designed to continuously monitor key performance metrics such as CPU utilization and disk usage on Amazon EC2 instances. When predefined thresholds are breached, indicating potential issues such as high CPU load or nearly full disk space, the system automatically triggers alerts.\nTogether, these services form an automated, serverless alerting pipeline:\nCloudWatch Alarms continuously monitor EC2 instances for high CPU usage and disk space utilization. When a threshold is breached, the CloudWatch alarm triggers a Lambda function. The Lambda function processes the alarm event and sends a formatted notification to a specified Slack channel using a webhook. "
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.1-createec2/",
+	"title": "Preparing VPC and EC2",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will need to create a VPC with public subnet and EC2 instance. You can follow previous tutorial to create it\n"
+},
+{
+	"uri": "//localhost:1313/4-s3log/4.1-updateiamrole/",
+	"title": "Update IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "For our EC2 instances to be able to send session logs to the S3 bucket, we will need to update the IAM Role assigned to the EC2 instance by adding a policy that allows access to S3.\nUpdate IAM Role Go to IAM service management console Click Roles. In the search box, enter SSM. Click on the SSM-Role role. Click Attach policies. In the Search box enter S3. Click the policy AmazonS3FullAccess. Click Attach policy. In the production environment, we will grant stricter permissions to the specified S3 bucket. In the framework of this lab, we use the policy AmazonS3FullAccess for convenience.\nNext, we will proceed to create an S3 bucket to store session logs.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/2.2-createiamrole/",
+	"title": "Create IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "Create IAM Role In this step, we will proceed to create IAM Role. In this IAM Role, the policy AWSLambdaBasicExecutionRole and CloudWatchReadOnlyAccess will be assigned, this is the policy that allows the Lambda to communicate with the CloudWatch.\nGo to IAM service administration interface In the left navigation bar, click Roles. Click Create role. In the Search box, enter AWSLambdaBasicExecutionRole and CloudWatchReadOnlyAccess then press Enter to search for this policy. Click the policy AmazonSSMManagedInstanceCore. Click Next: Tags. Click Next: Review. Name the Role LambdaCloudWatchSlackRole in Role Name Click Create Role . "
+},
+{
+	"uri": "//localhost:1313/4-s3log/4.2-creates3bucket/",
+	"title": "Create S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will create an S3 bucket to store session logs sent from EC2 instances.\nCreate S3 Bucket Access S3 service management console Click Create bucket. At the Create bucket page. In the Bucket name field, enter the bucket name lab-yourname-bucket-0001 In the Region section, select Region you are doing the current lab. The name of the S3 bucket must not be the same as all other S3 buckets in the system. You can substitute your name and enter a random number when generating the S3 bucket name.\nScroll down and click Create bucket. When we created the S3 bucket we did Block all public access so our EC2 instances won\u0026rsquo;t be able to connect to S3 via the internet. In the next step, we will configure the S3 Gateway Endpoint feature to allow EC2 instances to connect to the S3 bucket via the VPC\u0026rsquo;s internal network.\n"
+},
+{
+	"uri": "//localhost:1313/2-prerequiste/",
+	"title": "Preparation ",
+	"tags": [],
+	"description": "",
+	"content": "\rYou need to create 1 Linux instance on the public subnet to perform this lab.\nTo learn how to create EC2 instances and VPCs with public/private subnets, you can refer to the lab:\nAbout Amazon EC2 Works with Amazon VPC Content Prepare VPC and EC2 Create IAM Role "
+},
+{
+	"uri": "//localhost:1313/3-createcloudwatchservice/",
+	"title": "Create Cloud Watch Service",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will create CloudWatch service to Monitor EC2 CPU.\nSelect Service CloudWatch Create Alarm Choose metric is EC2 was created and metric named CPUUtilization Setup param Add lambda function "
+},
+{
+	"uri": "//localhost:1313/4-s3log/4.3-creategwes3/",
+	"title": "Create S3 Gateway endpoint",
+	"tags": [],
+	"description": "",
+	"content": " Go to VPC service management console Click Endpoints. Click Create endpoint. At the Create endpoint page. In the Name tag field, enter S3GW. In the Service Category section, click AWS services. In the search box enter S3, then select com.amazonaws.[region].s3 In the Services section, select com.amazonaws.[region].s3 with the Type of Gateway. In the VPC section, select Lab VPC. In the Route tables section, select both route tables. Scroll down, click Create endpoint. The next step is to configure Session Manager to store session logs to the S3 bucket we created.\n"
+},
+{
+	"uri": "//localhost:1313/4-createlambdafunction/",
+	"title": "Create Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": "In this section, we will proceed to create lambda function.\nContent: Import Layer Create Lambda Function "
+},
+{
+	"uri": "//localhost:1313/4-s3log/",
+	"title": "Manage session logs",
+	"tags": [],
+	"description": "",
+	"content": "With Session Manager, we can view the history of connections to instances through Session history. However, we have not seen the details of the commands used in a session.\nIn this section, we will proceed to create an S3 bucket and configure the session logs feature to see the details of the commands used in the session.\nContent: Update IAM Role Create S3 Bucket Create S3 Gateway endpoint Configure Session logs "
+},
+{
+	"uri": "//localhost:1313/4-s3log/4.4-configsessionlogs/",
+	"title": "Monitor session logs",
+	"tags": [],
+	"description": "",
+	"content": "Monitor session logs Access System Manager - Session Manager service management console Click the Preferences tab. Click Edit. Scroll down, at S3 logging, click Enable. Uncheck Allow only encrypted S3 buckets. Click Choose a bucket name from the list. Select the S3 bucket you created. Scroll down, click Save to save the configuration.\nAccess System Manager - Session Manager service management console\nClick Start session. Click Private Windows Instance. Click Start session. Type the command ipconfig. Type the command hostname. Click Terminate to exit the session, click Terminate again to confirm. Check Session logs in S3 Go to S3 service management console Click on the name of the S3 bucket we created for the lab. Click on the object name sessions log On the objects detail page, click Open. Object logs will be opened in a new tab in the browser. You can view the stored commands in session logs. "
+},
+{
+	"uri": "//localhost:1313/5-portfwd/",
+	"title": "Port Forwarding",
+	"tags": [],
+	"description": "",
+	"content": "\rPort Forwarding is a useful way to redirect network traffic from one IP address - Port to another IP address - Port. With Port Forwarding we can access an EC2 instance located in the private subnet from our workstation.\nWe will configure Port Forwarding for the RDP connection between our machine and Private Windows Instance located in the private subnet we created for this exercise.\nCreate IAM user with permission to connect SSM Go to IAM service management console Click Users , then click Add users. At the Add user page. In the User name field, enter Portfwd. Click on Access key - Programmatic access. Click Next: Permissions. Click Attach existing policies directly.\nIn the search box, enter ssm. Click on AmazonSSMFullAccess. Click Next: Tags, click Next: Reviews. Click Create user. Save Access key ID and Secret access key information to perform AWS CLI configuration.\nInstall and Configure AWS CLI and Session Manager Plugin To perform this hands-on, make sure your workstation has AWS CLI and Session Manager Plugin installed -manager-working-with-install-plugin.html)\nMore hands-on tutorials on installing and configuring the AWS CLI can be found here.\nWith Windows, when extracting the Session Manager Plugin installation folder, run the install.bat file with Administrator permission to perform the installation.\nImplement Portforwarding Run the command below in Command Prompt on your machine to configure Port Forwarding. aws ssm start-session --target (your ID windows instance) --document-name AWS-StartPortForwardingSession --parameters portNumber=\u0026#34;3389\u0026#34;,localPortNumber=\u0026#34;9999\u0026#34; --region (your region) Windows Private Instance Instance ID information can be found when you view the EC2 Windows Private Instance server details.\nExample command: C:\\Windows\\system32\u0026gt;aws ssm start-session --target i-06343d7377486760c --document-name AWS-StartPortForwardingSession --parameters portNumber=\u0026#34;3389\u0026#34;,localPortNumber=\u0026#34;9999\u0026#34; --region ap-southeast-1 If your command gives an error like below: SessionManagerPlugin is not found. Please refer to SessionManager Documentation here: http://docs.aws.amazon.com/console/systems-manager/session-manager-plugin-not-found\nProve that you have not successfully installed the Session Manager Plugin. You may need to relaunch Command Prompt after installing Session Manager Plugin.\nConnect to the Private Windows Instance you created using the Remote Desktop tool on your workstation. In the Computer section: enter localhost:9999. Return to the administration interface of the System Manager - Session Manager service. Click tab Session history. We will see session logs with Document name AWS-StartPortForwardingSession. Congratulations on completing the lab on how to use Session Manager to connect and store session logs in S3 bucket. Remember to perform resource cleanup to avoid unintended costs.\n"
+},
+{
+	"uri": "//localhost:1313/6-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "We will take the following steps to delete the resources we created in this exercise.\nDelete EC2 instance Go to EC2 service management console\nClick Instances. Select both Public Linux Instance and Private Windows Instance instances. Click Instance state. Click Terminate instance, then click Terminate to confirm. Go to IAM service management console\nClick Roles. In the search box, enter SSM. Click to select SSM-Role. Click Delete, then enter the role name SSM-Role and click Delete to delete the role. Click Users. Click on user Portfwd. Click Delete, then enter the user name Portfwd and click Delete to delete the user. Delete S3 bucket Access System Manager - Session Manager service management console.\nClick the Preferences tab. Click Edit. Scroll down. In the section S3 logging. Uncheck Enable to disable logging. Scroll down. Click Save. Go to S3 service management console\nClick on the S3 bucket we created for this lab. (Example: lab-fcj-bucket-0001 ) Click Empty. Enter permanently delete, then click Empty to proceed to delete the object in the bucket. Click Exit. After deleting all objects in the bucket, click Delete\nEnter the name of the S3 bucket, then click Delete bucket to proceed with deleting the S3 bucket. Delete VPC Endpoints Go to VPC service management console Click Endpoints. Select the 4 endpoints we created for the lab including SSM, SSMMESSAGES, EC2MESSAGES, S3GW. Click Actions. Click Delete VPC endpoints. In the confirm box, enter delete.\nClick Delete to proceed with deleting endpoints. Click the refresh icon, check that all endpoints have been deleted before proceeding to the next step.\nDelete VPC Go to VPC service management console\nClick Your VPCs. Click on Lab VPC. Click Actions. Click Delete VPC. In the confirm box, enter delete to confirm, click Delete to delete Lab VPC and related resources.\n"
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
