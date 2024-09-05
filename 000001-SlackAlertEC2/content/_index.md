@@ -1,5 +1,5 @@
 ---
-title: "Session Management"
+title: "Slack Alert EC2"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false

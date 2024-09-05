@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.133.1">
     <meta name="description" content="">
-<meta name="author" content="journeyoftheaverageguy@gmail.com">
+<meta name="author" content="dinkmsd@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
     <title>Tạo IAM Role :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1725163089" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1725163089" rel="stylesheet">
-    <link href="/css/hybrid.css?1725163089" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1725163089" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1725163089" rel="stylesheet">
-    <link href="/css/auto-complete.css?1725163089" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1725163089" rel="stylesheet">
-    <link href="/css/theme.css?1725163089" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1725163089" rel="stylesheet">
+    <link href="/css/nucleus.css?1725551712" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725551712" rel="stylesheet">
+    <link href="/css/hybrid.css?1725551712" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725551712" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725551712" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725551712" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1725551712" rel="stylesheet">
+    <link href="/css/theme.css?1725551712" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725551712" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1725163089" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1725551712" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1725163089"></script>
+    <script src="/js/jquery-3.3.1.min.js?1725551712"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1725163089"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1725163089"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1725551712"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1725551712"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1725163089"></script>
+<script type="text/javascript" src="/js/search.js?1725551712"></script>
 
     
   </div>
@@ -139,34 +139,6 @@
  
   
     
-    <li data-nav-id="/vi/2-prerequiste/2.1-createec2/" title="Chuẩn bị VPC và EC2" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/2-prerequiste/2.1-createec2/">
-           <b> 2.1 </b> Chuẩn bị VPC và EC2
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
     <li data-nav-id="/vi/2-prerequiste/2.2-createiamrole/" title="Tạo IAM Role" class="dd-item 
         
         active
@@ -202,214 +174,12 @@
  
   
     
-    <li data-nav-id="/vi/3-createcloudwatchservice/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/7-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
         
         
         
         ">
-      <a href="/vi/3-createcloudwatchservice/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/" title="Quản lý session logs" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/">
-           <b> 4. </b> Quản lý session logs
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.1-updateiamrole/" title="Cập nhật IAM Role" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.1-updateiamrole/">
-           <b> 4.1 </b> Cập nhật IAM Role
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.2-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.2-creates3bucket/">
-           <b> 4.2 </b> Tạo S3 Bucket
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.3-creategwes3/" title="Tạo S3 Gateway endpoint" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.3-creategwes3/">
-           <b> 4.3 </b> Tạo S3 Gateway endpoint
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-s3log/4.4-configsessionlogs/" title="Theo dõi session logs" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-s3log/4.4-configsessionlogs/">
-           <b> 4.4 </b> Theo dõi session logs
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/5-portfwd/" title="Port Forwarding" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/5-portfwd/">
-           <b> 5. </b> Port Forwarding
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/6-cleanup/">
+      <a href="/vi/7-cleanup/">
           <b>6. </b>Dọn dẹp tài nguyên  
           
             <i class="fas fa-check read-icon"></i>
@@ -718,25 +488,6 @@
             
                 
                     
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -759,120 +510,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -894,10 +531,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-prerequiste/2.1-createec2/" title="Chuẩn bị VPC và EC2"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/2-prerequiste/" title="Các bước chuẩn bị"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/3-createcloudwatchservice/" title="Tạo kết nối đến máy chủ EC2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/7-cleanup/" title="Dọn dẹp tài nguyên  " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -907,19 +544,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1725163089"></script>
-    <script src="/js/perfect-scrollbar.min.js?1725163089"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1725163089"></script>
-    <script src="/js/jquery.sticky.js?1725163089"></script>
-    <script src="/js/featherlight.min.js?1725163089"></script>
-    <script src="/js/highlight.pack.js?1725163089"></script>
+    <script src="/js/clipboard.min.js?1725551712"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725551712"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725551712"></script>
+    <script src="/js/jquery.sticky.js?1725551712"></script>
+    <script src="/js/featherlight.min.js?1725551712"></script>
+    <script src="/js/highlight.pack.js?1725551712"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1725163089"></script>
-    <script src="/js/learn.js?1725163089"></script>
-    <script src="/js/hugo-learn.js?1725163089"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1725551712"></script>
+    <script src="/js/learn.js?1725551712"></script>
+    <script src="/js/hugo-learn.js?1725551712"></script>
 
-    <link href="/mermaid/mermaid.css?1725163089" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1725163089"></script>
+    <link href="/mermaid/mermaid.css?1725551712" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725551712"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
